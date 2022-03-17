@@ -1,0 +1,31 @@
+body{
+    background-color: antiquewhite;
+}
+
+.babyNamesList {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.m {
+    background-color: #ff9900;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: serif;
+    padding: 5px;
+    margin: 3px
+}
+
+.f {
+    background-color: #ff7247;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: serif;
+    padding: 5px;
+    margin: 3px
+}
