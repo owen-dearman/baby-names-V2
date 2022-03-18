@@ -64,27 +64,40 @@ function App(): JSX.Element {
 
   return (
     <>
-      <input
-        placeholder="Search Here"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button onClick={() => setSearchTerm("")}>Clear Input</button>
-      <button
-        onClick={() =>
-          setGenderFilter(filteredNames.filter((x) => x.sex === "m"))
-        }
-      >
-        Male
-      </button>
-      <button
-        onClick={() =>
-          setGenderFilter(filteredNames.filter((x) => x.sex === "f"))
-        }
-      >
-        Female
-      </button>
-      <button onClick={() => setGenderFilter(filteredNames)}>Any</button>
+      <h1 className="title">Pick Your Favourite Baby Names!</h1>
+      <div>
+        <input
+          style={{ fontSize: 30 }}
+          placeholder="Search Here"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button style={{ fontSize: 30 }} onClick={() => setSearchTerm("")}>
+          Clear Input
+        </button>
+        <button
+          style={{ fontSize: 30 }}
+          onClick={() =>
+            setGenderFilter(alphabeticalOrderNames.filter((x) => x.sex === "m"))
+          }
+        >
+          ♂️
+        </button>
+        <button
+          style={{ fontSize: 30 }}
+          onClick={() =>
+            setGenderFilter(alphabeticalOrderNames.filter((x) => x.sex === "f"))
+          }
+        >
+          ♀️
+        </button>
+        <button
+          style={{ fontSize: 30 }}
+          onClick={() => setGenderFilter(alphabeticalOrderNames)}
+        >
+          ♂️♀️
+        </button>
+      </div>
       <hr />
       <h2>Favourites List</h2>
       <div className="babyNamesList">{preparedFavourites}</div>
