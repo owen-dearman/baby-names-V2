@@ -61,14 +61,26 @@ function App(): JSX.Element {
     );
   }
 
-  //Formatting of function component
+  //download favourites
+  const downloadFavourites = () => {
+    const namesString: string= favourites.map((x) => `${x.name} (${x.sex})`).join(", ")
+    const element = document.createElement("a");
+    const file = new Blob([namesString], {
+      type: "text/plain"
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = "Favourite-Baby-Names.txt";
+    document.body.appendChild(element);
+    element.click();
+  };
 
+  //Formatting of function component
   return (
     <>
-      <h1 className="headerTitle">Pick Your Favourite Baby Names Here</h1>
+      <h1 className="headerTitle">Pick Your Favourite Baby Names</h1>
       <div>
         <input
-          style={{ fontSize: 30 }}
+          style={{ fontSize: 20 }}
           placeholder="Search Here"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -109,14 +121,15 @@ function App(): JSX.Element {
       <hr />
       <h2 className="title">Favourites List</h2>
       <p className="subtitle">Showing {favourites.length} names</p>
-      <button style={{ fontSize: 20 }} onClick={() => setToFavourites([])}>
-        Clear Favourities
+      <button style={{ fontSize: 20}} onClick={() => setToFavourites([])}>
+        Clear Favourites
       </button>
+      <button style={{fontSize: 20}} onClick={downloadFavourites}>Download Favourites</button>
       <div className="babyNamesList">{preparedFavourites}</div>
       <hr />
       <h2 className="title">Name List</h2>
       <p className="subtitle">
-        Now Showing {preparedNames.length} of {babyNameData.length} Names
+        Showing {preparedNames.length} of {babyNameData.length} Names
       </p>
       <div className="babyNamesList">{preparedNames}</div>
     </>

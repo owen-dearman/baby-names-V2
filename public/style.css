@@ -1,17 +1,11 @@
 body{
     background-color: antiquewhite;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     width:80%;
     border: 30px double #ec87fa;
     height: auto;
     margin: 50px auto;
     border-radius: 50px;
     padding: 20px
-
-
 }
 
 .babyNamesList {
@@ -54,7 +48,8 @@ body{
     font-size: 60px;
     font-family:Georgia, 'Times New Roman', Times, serif;
     color:rgb(255, 0, 242);
-    text-align: center
+    text-align: center;
+    font-style: bold;
 }
 
 .title{
@@ -69,20 +64,17 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:rgb(0, 0, 0);
     text-align: left; 
+    font-style: italic;
 }
 
 button{
-    font-size: 30px;
+    font-size: 20px;
     background-color: #ec87fa;
-    
-
 }
 
 .activeButton{
-    font-size:30px;
+    font-size:20px;
     background:rgb(255, 255, 0);
-    
-
 }
 
 
