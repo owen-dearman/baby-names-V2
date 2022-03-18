@@ -7,6 +7,7 @@ function App(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [favourites, setToFavourites] = useState<babyNameDataInterface[]>([]);
 
+  //Producing alphabetically sorted names filtered via search bar
   const alphabeticalOrderNames: babyNameDataInterface[] =
     sortNameList(babyNameData);
   const filteredNames: babyNameDataInterface[] = alphabeticalOrderNames
@@ -14,10 +15,19 @@ function App(): JSX.Element {
       nameObject.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((x) => !favourites.includes(x));
-  const preparedNames: JSX.Element[] = filteredNames.map(mapNamesToMain);
+
+  const [genderFilter, setGenderFilter] =
+    useState<babyNameDataInterface[]>(filteredNames);
+
+  //calling mapping functions on array of name objects for main and favourites bar
+  //line 25 includes filter function to only show the selected gender
+  const preparedNames: JSX.Element[] = filteredNames
+    .filter((x) => genderFilter.includes(x))
+    .map(mapNamesToMain);
   const preparedFavourites: JSX.Element[] =
     favourites.map(mapNamesToFavourites);
 
+  //mapping names into main name bar
   function mapNamesToMain(props: babyNameDataInterface): JSX.Element {
     return (
       <div
@@ -34,6 +44,8 @@ function App(): JSX.Element {
       </div>
     );
   }
+
+  //mapping names into Favourites Bar
   function mapNamesToFavourites(props: babyNameDataInterface): JSX.Element {
     return (
       <div
@@ -48,6 +60,8 @@ function App(): JSX.Element {
     );
   }
 
+  //Formatting of function component
+
   return (
     <>
       <input
@@ -55,6 +69,22 @@ function App(): JSX.Element {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <button onClick={() => setSearchTerm("")}>Clear Input</button>
+      <button
+        onClick={() =>
+          setGenderFilter(filteredNames.filter((x) => x.sex === "m"))
+        }
+      >
+        Male
+      </button>
+      <button
+        onClick={() =>
+          setGenderFilter(filteredNames.filter((x) => x.sex === "f"))
+        }
+      >
+        Female
+      </button>
+      <button onClick={() => setGenderFilter(filteredNames)}>Any</button>
       <hr />
       <h2>Favourites List</h2>
       <div className="babyNamesList">{preparedFavourites}</div>
