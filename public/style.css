@@ -1,5 +1,17 @@
 body{
     background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:80%;
+    border: 30px double #ec87fa;
+    height: auto;
+    margin: 50px auto;
+    border-radius: 50px;
+    padding: 20px
+
+
 }
 
 .babyNamesList {
@@ -11,6 +23,9 @@ body{
 }
 
 .m {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: #ff9900;
     color: rgb(0, 0, 0);
     border-radius: 5px;
@@ -18,10 +33,13 @@ body{
     font-family: serif;
     padding: 5px;
     margin: 3px;
-    width: auto;
+    /* width: auto; */
 }
 
 .f {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: #ff7247;
     color: rgb(255, 255, 255);
     border-radius: 5px;
@@ -29,7 +47,7 @@ body{
     font-family: serif;
     padding: 5px;
     margin: 3px;
-    width: auto;
+    /* width: auto; */
 }
 
 .headerTitle{
@@ -67,17 +85,5 @@ button{
 
 }
 
-body {
-    display:block;
-    width:90%;
-    border: 30px double #ec87fa;
-    height: auto;
-    margin: 50px auto;
-    border-radius: 50px;
-    padding: 10px;
-}
 
-@media screen and (max-width: 1260px) {
-    .m{ font-size: 11px !important; }
-    }
-    .f{font-size: 11px !important;}
+
