@@ -76,3 +76,8 @@ body {
     border-radius: 50px;
     padding: 10px;
 }
+
+@media screen and (max-width: 1260px) {
+    .m{ font-size: 11px !important; }
+    }
+    .f{font-size: 11px !important;}
