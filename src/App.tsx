@@ -6,6 +6,7 @@ import { useState } from "react";
 function App(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [favourites, setToFavourites] = useState<babyNameDataInterface[]>([]);
+  const [currentActiveButton, setActiveButton] = useState<string>("any");
 
   //Producing alphabetically sorted names filtered via search bar
   const alphabeticalOrderNames: babyNameDataInterface[] =
@@ -64,7 +65,7 @@ function App(): JSX.Element {
 
   return (
     <>
-      <h1 className="title">Pick Your Favourite Baby Names!</h1>
+      <h1 className="headerTitle">Pick Your Favourite Baby Names Here</h1>
       <div>
         <input
           style={{ fontSize: 30 }}
@@ -72,37 +73,49 @@ function App(): JSX.Element {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button style={{ fontSize: 30 }} onClick={() => setSearchTerm("")}>
-          Clear Input
-        </button>
+        <button onClick={() => setSearchTerm("")}>Clear Input</button>
         <button
-          style={{ fontSize: 30 }}
-          onClick={() =>
-            setGenderFilter(alphabeticalOrderNames.filter((x) => x.sex === "m"))
-          }
+          className={currentActiveButton === "male" ? "activeButton" : ""}
+          onClick={() => {
+            setGenderFilter(
+              alphabeticalOrderNames.filter((x) => x.sex === "m")
+            );
+            setActiveButton("male");
+          }}
         >
           ♂️
         </button>
         <button
-          style={{ fontSize: 30 }}
-          onClick={() =>
-            setGenderFilter(alphabeticalOrderNames.filter((x) => x.sex === "f"))
-          }
+          className={currentActiveButton === "female" ? "activeButton" : ""}
+          onClick={() => {
+            setGenderFilter(
+              alphabeticalOrderNames.filter((x) => x.sex === "f")
+            );
+            setActiveButton("female");
+          }}
         >
           ♀️
         </button>
         <button
-          style={{ fontSize: 30 }}
-          onClick={() => setGenderFilter(alphabeticalOrderNames)}
+          className={currentActiveButton === "any" ? "activeButton" : ""}
+          onClick={() => {
+            setGenderFilter(alphabeticalOrderNames);
+            setActiveButton("any");
+          }}
         >
           ♂️♀️
         </button>
       </div>
       <hr />
-      <h2>Favourites List</h2>
+      <h2 className="title">Favourites List</h2>
+      <p className="subtitle">Showing {favourites.length} names</p>
+      <button style={{ fontSize: 20 }} onClick={() => setToFavourites([])}>
+        Clear Favourities
+      </button>
       <div className="babyNamesList">{preparedFavourites}</div>
       <hr />
-      <p>
+      <h2 className="title">Name List</h2>
+      <p className="subtitle">
         Now Showing {preparedNames.length} of {babyNameData.length} Names
       </p>
       <div className="babyNamesList">{preparedNames}</div>

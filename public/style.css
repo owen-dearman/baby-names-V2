@@ -14,7 +14,7 @@ body{
     background-color: #ff9900;
     color: rgb(0, 0, 0);
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 30px;
     font-family: serif;
     padding: 5px;
     margin: 3px
@@ -24,15 +24,51 @@ body{
     background-color: #ff7247;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 30px;
     font-family: serif;
     padding: 5px;
     margin: 3px
 }
 
+.headerTitle{
+    font-size: 60px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:rgb(255, 0, 242);
+    text-align: center
+}
+
 .title{
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:rgb(255, 0, 242);
     text-align: center;
+}
+
+.subtitle{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(0, 0, 0);
+    text-align: left; 
+}
+
+button{
+    font-size: 30px;
+    background-color: #ec87fa;
+
+}
+
+.activeButton{
+    font-size:30px;
+    background:rgb(255, 255, 0);
+
+}
+
+body {
+    display:block;
+    width:90%;
+    border: 30px double #ec87fa;
+    height: auto;
+    margin: 50px auto;
+    border-radius: 50px;
+    padding: 10px;
 }
