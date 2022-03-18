@@ -56,14 +56,14 @@ body{
 button{
     font-size: 30px;
     background-color: #ec87fa;
-    width: fit-content;
+    
 
 }
 
 .activeButton{
     font-size:30px;
     background:rgb(255, 255, 0);
-    width: fit-content;
+    
 
 }
 
