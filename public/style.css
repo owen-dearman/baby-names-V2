@@ -14,22 +14,22 @@ body{
     background-color: #ff9900;
     color: rgb(0, 0, 0);
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 20px;
     font-family: serif;
     padding: 5px;
     margin: 3px;
-    width: fit-content;
+    width: auto;
 }
 
 .f {
     background-color: #ff7247;
     color: rgb(255, 255, 255);
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 20px;
     font-family: serif;
     padding: 5px;
     margin: 3px;
-    width: fit-content;
+    width: auto;
 }
 
 .headerTitle{
